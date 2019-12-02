@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+pygdal = "==2.2.3.*"
+shapely = {extras = ["vectorized"],version = "==1.6.*"}
+pandas = "==0.25.*"
+matplotlib = "==3.1.*"
+cartopy = "==0.17.*"
+geopandas = "==0.6.*"
+
+[requires]
+python_version = "3.6"
