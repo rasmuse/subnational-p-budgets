@@ -1,3 +1,19 @@
+import pandas as pd
+import eust
+
+NUTS_YEAR = 2016
+DEFAULT_NUTS_LEVEL = 2
+EXCEPTIONS = {
+    "DE": 1, # Most agricultural statistics available only on NUTS1 level
+    "EL": 0, # Data quality concerns below NUTS0
+    "SI": 0, # Data quality concerns below NUTS0
+    'CY': 0, # Has only one NUTS2 region, so NUTS0 resolution is also NUTS2
+    'EE': 0, # Has only one NUTS2 region, so NUTS0 resolution is also NUTS2
+    'LU': 0, # Has only one NUTS2 region, so NUTS0 resolution is also NUTS2
+    'LV': 0, # Has only one NUTS2 region, so NUTS0 resolution is also NUTS2
+    'MT': 0, # Has only one NUTS2 region, so NUTS0 resolution is also NUTS2
+}
+
 def get_nuts_codes():
     return eust.read_nuts_codes(NUTS_YEAR, drop_extra_regio=True)
 
