@@ -40,7 +40,15 @@ def get_aggregates(s, aggregates, level=None, skipna=False):
     return d
 
 
-def fill_aggregates(s, aggregates, **kwargs):
-    aggregate_values = get_aggregates(s, aggregates, **kwargs)
-    union_index = s.index.union(aggregate_values.index)
-    return s.reindex(union_index).fillna(aggregate_values)
+def fill_aggregates(s, aggregates, iterate=False, **kwargs):
+    do_more = True
+    while do_more:
+        aggregate_values = get_aggregates(s, aggregates, **kwargs)
+        union_index = s.index.union(aggregate_values.index)
+
+        num_additions = len(aggregate_values.index.difference(s.index))
+        do_more = iterate and num_additions
+
+        s = s.reindex(union_index).fillna(aggregate_values)
+
+    return s
