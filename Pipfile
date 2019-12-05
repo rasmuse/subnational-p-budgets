@@ -13,6 +13,7 @@ matplotlib = "==3.1.*"
 cartopy = "==0.17.*"
 geopandas = "==0.6.*"
 eust = "==0.4.*"
+rtree = "*"
 
 [requires]
 python_version = "3.6"
