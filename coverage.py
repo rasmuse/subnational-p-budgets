@@ -54,17 +54,3 @@ def get_coverage(a, b):
     the result is the area of the a/b intersection divided by the area of a.
     """
     return get_intersection_areas(a, b).eval("x_area / a_area")
-
-
-NUTS_SHP_PATH = "indata/NUTS_RG_20M_2013_3035.shp/NUTS_RG_20M_2013_3035.shp"
-FADN_SHP_PATH = "indata/FADN_RICA_PL_2012_20M/FADN_RICA_PL_2012_20M.shp"
-
-nuts_path = NUTS_SHP_PATH
-fadn_path = FADN_SHP_PATH
-
-nuts_data = geopandas.read_file(nuts_path).set_index("NUTS_ID")
-fadn_data = geopandas.read_file(fadn_path).set_index("FADN_2012_")
-
-nuts2 = nuts_data[lambda d: d.index.str.len() == 4]
-
-nuts2_coverage = get_coverage(nuts2, fadn_data)
