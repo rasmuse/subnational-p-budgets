@@ -47,10 +47,10 @@ def get_intersection_areas(a, b):
     return areas
 
 
-def get_coverage(a, b):
+def get_share(a, b):
     """
     With the geometries in geopandas DataFrames a and b, calculate the
-    area fraction of features in a covered by features in b. In other words,
-    the result is the area of the a/b intersection divided by the area of a.
+    area share of each a feature in each b feature. In other words, the result
+    is the area of the a-b intersection divided by the area of b.
     """
-    return get_intersection_areas(a, b).eval("x_area / a_area").rename("share")
+    return get_intersection_areas(a, b).eval("x_area / b_area").rename("share")
