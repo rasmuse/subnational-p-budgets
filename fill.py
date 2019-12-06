@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def get_level_num(s, level):
     assert level is not None
     if isinstance(level, int):
@@ -10,6 +11,13 @@ def get_level_num(s, level):
 
 def get_aggregates(s, aggregates, level=None, skipna=False):
     assert isinstance(s, pd.Series)
+
+    if level is not None:
+        if len(s.index.names) == 1:
+            name, = s.index.names
+            if name != level:
+                raise ValueError(f"no level '{level}' present")
+            level = None
 
     if level is None:
         return (
