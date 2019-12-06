@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def get_level_num(s, level):
+def _get_pandas_level_num(s, level):
     assert level is not None
     if isinstance(level, int):
         return level
@@ -9,7 +9,7 @@ def get_level_num(s, level):
     return num
 
 
-def get_aggregates(s, aggregates, level=None, skipna=False):
+def sum_aggregates(s, aggregates, level=None, skipna=False):
     assert isinstance(s, pd.Series)
 
     if level is not None:
@@ -31,7 +31,7 @@ def get_aggregates(s, aggregates, level=None, skipna=False):
             .rename_axis(s.index.names)
         )
 
-    level_num = get_level_num(s, level)
+    level_num = _get_pandas_level_num(s, level)
     original_names = s.index.names
     s = s.swaplevel(level_num)
     drop_how = "all" if skipna else "any"
@@ -53,15 +53,39 @@ def get_aggregates(s, aggregates, level=None, skipna=False):
     return d
 
 
-def fill_aggregates(s, aggregates, iterate=False, **kwargs):
+def _fill(s, func, *args, iterate=False, **kwargs):
     do_more = True
     while do_more:
-        aggregate_values = get_aggregates(s, aggregates, **kwargs)
-        union_index = s.index.union(aggregate_values.index)
+        additions = func(s, *args, **kwargs)
+        union_index = s.index.union(additions.index)
 
-        num_additions = len(aggregate_values.index.difference(s.index))
+        num_additions = len(additions.index.difference(s.index))
         do_more = iterate and num_additions
 
-        s = s.reindex(union_index).fillna(aggregate_values)
+        s = s.reindex(union_index).fillna(additions)
 
     return s
+
+
+def fill_sum_aggregates(s, aggregates, iterate=False, **kwargs):
+    return _fill(s, sum_aggregates, aggregates, iterate=iterate, **kwargs)
+
+
+def copy_to_children(s, aggregates, level=None):
+    assert isinstance(s, pd.Series)
+
+    child_parent_pairs = {}
+    for parent, children in aggregates.items():
+        for child in children:
+            if child in child_parent_pairs:
+                raise ValueError(
+                    f"item {child} has at least two parents: "
+                    f"{child_parent_pairs[child]} and {parent}"
+                )
+            child_parent_pairs[child] = [parent]
+
+    return sum_aggregates(s, child_parent_pairs, skipna=False, level=level)
+
+
+def fill_copy_to_children(s, aggregates, iterate=False, **kwargs):
+    return _fill(s, copy_to_children, aggregates, iterate=iterate, **kwargs)

@@ -1,6 +1,6 @@
 import pandas as pd
 import eust
-import fill
+import hierarchy
 import settings
 
 
@@ -21,13 +21,13 @@ def fill_nuts(s):
         if len(children) == 1
     }
     return s.pipe(
-        fill.fill_aggregates,
+        hierarchy.fill_sum_aggregates,
         aggregates,
         level="geo",
         skipna=False,
         iterate=True,
     ).pipe(
-        fill.fill_aggregates,
+        hierarchy.fill_sum_aggregates,
         child_parent_pairs,
         level="geo",
         skipna=False,
