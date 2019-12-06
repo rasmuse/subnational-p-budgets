@@ -15,8 +15,8 @@ def get_aggregates(s, aggregates, level=None, skipna=False):
         return (
             pd.Series(
                 {
-                    parent: s.reindex(children).sum(skipna=skipna)
-                    for parent, children in aggregates.items()
+                    dst_label: s.reindex(src_labels).sum(skipna=skipna)
+                    for dst_label, src_labels in aggregates.items()
                 }
             )
             .rename(s.name)
@@ -27,15 +27,20 @@ def get_aggregates(s, aggregates, level=None, skipna=False):
     original_names = s.index.names
     s = s.swaplevel(level_num)
     drop_how = "all" if skipna else "any"
-    d = pd.DataFrame(
-        {
-            parent: s.reindex(children, level=level)
-            .unstack()
-            .dropna(how=drop_how)
-            .sum(axis=1)
-            for parent, children in aggregates.items()
-        }
-    ).stack().swaplevel(level_num).rename_axis(original_names)
+    d = (
+        pd.DataFrame(
+            {
+                dst_label: s.reindex(src_labels, level=level)
+                .unstack()
+                .dropna(how=drop_how)
+                .sum(axis=1)
+                for dst_label, src_labels in aggregates.items()
+            }
+        )
+        .stack()
+        .swaplevel(level_num)
+        .rename_axis(original_names)
+    )
 
     return d
 
