@@ -37,3 +37,20 @@ def fill_nuts(s):
         skipna=False,
         iterate=True,
     )
+
+
+def filter_nuts_level(d, nuts_level, level="geo"):
+    d_geo_index = (
+        d.index
+        if d.index.nlevels == 1
+        else d.index.get_level_values(level)
+    )
+    codes = (
+        eust.read_nuts_codes(settings.NUTS_VERSION)
+        .nuts_level.loc[lambda s: s == nuts_level]
+        .index
+    )
+
+    is_match = d_geo_index.isin(codes)
+
+    return d[is_match]
