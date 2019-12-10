@@ -1,11 +1,10 @@
-NUTS_VERSION = 2013
+NUTS_VERSION = 2010
 DEFAULT_NUTS_LEVEL = 2
-NUTS_LEVEL_EXCEPTIONS = {
-    "DE": 1,  # Most agricultural statistics available only on NUTS1 level
-    "EL": 0,  # Data quality concerns below NUTS0
-    "SI": 0,  # Data quality concerns below NUTS0
-}
-NUTS_GIS_PATH = "indata/NUTS_RG_20M_2013_3035.shp/NUTS_RG_20M_2013_3035.shp"
+NUTS_LEVEL_EXCEPTIONS = {}
+NUTS_GIS_PATH = (
+    f"indata/NUTS_RG_20M_{NUTS_VERSION}_3035.shp/"
+    f"NUTS_RG_20M_{NUTS_VERSION}_3035.shp"
+)
 ENZ_GIS_PATH = "indata/enz/enz_v8.shp"
 FADN_GIS_PATH = "indata/FADN_RICA_PL_2012_20M/FADN_RICA_PL_2012_20M.shp"
 FADN_WEIGHTS_PATH = "outdata/fadn_weights_by_nuts.csv"
