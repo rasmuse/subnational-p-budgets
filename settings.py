@@ -1,6 +1,12 @@
 NUTS_VERSION = 2010
+DATA_YEAR = 2013
 DEFAULT_NUTS_LEVEL = 2
-NUTS_LEVEL_EXCEPTIONS = {}
+NUTS_LEVEL_EXCEPTIONS = {
+    "DE": 1,  # German FSS livestock populations for 2013 are on NUTS1 level
+}
+EXCLUDED_NUTS = {
+    'FR9',
+}
 NUTS_GIS_PATH = (
     f"indata/NUTS_RG_20M_{NUTS_VERSION}_3035.shp/"
     f"NUTS_RG_20M_{NUTS_VERSION}_3035.shp"
@@ -16,4 +22,3 @@ MINERAL_P_RATE_PATH = "outdata/mineral_p_rate.csv"
 GEOPLOT_XLIM = [2636000., 6526000.]
 GEOPLOT_YLIM = [1217000., 5421000.]
 
-DATA_YEAR = 2013
