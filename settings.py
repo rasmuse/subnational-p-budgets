@@ -23,8 +23,12 @@ CROP_DATA_PATH = "outdata/crop_data.csv"
 REFERENCE_AREAS_PATH = "outdata/reference_areas.csv"
 GRASSLAND_YIELD_ENZ_PATH = "indata/smit-2008-grassland-yields.csv"
 GRASSLAND_YIELD_NUTS_PATH = "outdata/grassland_yield.csv"
+LIVEDATE_EXCRETION_PATH = (
+    "indata/Livedate_2014_Database N excretion factors.xlsx"
+)
+EXCRETION_PATH = "outdata/excretion.csv"
 MINERAL_P_RATE_PATH = "outdata/mineral_p_rate.csv"
 
-GEOPLOT_XLIM = [2636000., 6526000.]
-GEOPLOT_YLIM = [1217000., 5421000.]
+GEOPLOT_XLIM = [2636000.0, 6526000.0]
+GEOPLOT_YLIM = [1217000.0, 5421000.0]
 
