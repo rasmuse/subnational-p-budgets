@@ -5,7 +5,11 @@ NUTS_LEVEL_EXCEPTIONS = {
     "DE": 1,  # German FSS livestock populations for 2013 are on NUTS1 level
 }
 EXCLUDED_NUTS = {
-    'FR9',
+    'FR9', # DÉPARTEMENTS D'OUTRE-MER (French Guiana, etc)
+    'ES63', # Ceuta in North Africa,
+    'ES64', # Melilla in North Africa
+    'UKI1', # Inner London
+
 }
 NUTS_GIS_PATH = (
     f"indata/NUTS_RG_20M_{NUTS_VERSION}_3035.shp/"
@@ -15,6 +19,8 @@ ENZ_GIS_PATH = "indata/enz/enz_v8.shp"
 FADN_GIS_PATH = "indata/FADN_RICA_PL_2012_20M/FADN_RICA_PL_2012_20M.shp"
 FADN_WEIGHTS_PATH = "outdata/fadn_weights_by_nuts.csv"
 ENZ_WEIGHTS_PATH = "outdata/enz_weights_by_nuts.csv"
+CROP_DATA_PATH = "outdata/crop_data.csv"
+REFERENCE_AREAS_PATH = "outdata/reference_areas.csv"
 GRASSLAND_YIELD_ENZ_PATH = "indata/smit-2008-grassland-yields.csv"
 GRASSLAND_YIELD_NUTS_PATH = "outdata/grassland_yield.csv"
 MINERAL_P_RATE_PATH = "outdata/mineral_p_rate.csv"
