@@ -33,15 +33,14 @@ def sum_aggregates(s, aggregates, level=None, skipna=False):
 
     level_num = _get_pandas_level_num(s, level)
     original_names = s.index.names
-    s = s.swaplevel(level_num)
-    drop_how = "all" if skipna else "any"
-    d = (
+    d = s.swaplevel(level_num).unstack()
+
+    return (
         pd.DataFrame(
             {
-                dst_label: s.reindex(src_labels, level=level)
-                .unstack()
-                .dropna(how=drop_how)
-                .sum(axis=1)
+                dst_label: d.reindex(src_labels, axis=1).sum(
+                    axis=1, skipna=skipna
+                )
                 for dst_label, src_labels in aggregates.items()
             }
         )
@@ -49,8 +48,6 @@ def sum_aggregates(s, aggregates, level=None, skipna=False):
         .swaplevel(level_num)
         .rename_axis(original_names)
     )
-
-    return d
 
 
 def _fill(s, func, *args, iterate=False, **kwargs):
