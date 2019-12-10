@@ -29,7 +29,7 @@ CROP_DATA_PATH = "outdata/crop_data.csv"
 REFERENCE_AREAS_PATH = "outdata/reference_areas.csv"
 HARVEST_PATH = "outdata/harvest.csv"
 EXCRETION_PATH = "outdata/excretion.csv"
-MINERAL_P_RATE_PATH = "outdata/mineral_p_rate.csv"
+MINERAL_FERTILIZER_PATH = "outdata/mineral_fertilizer.csv"
 
 GEOPLOT_XLIM = [2636000.0, 6526000.0]
 GEOPLOT_YLIM = [1217000.0, 5421000.0]
