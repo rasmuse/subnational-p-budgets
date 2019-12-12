@@ -6,6 +6,10 @@ NUTS_LEVEL_EXCEPTIONS = {
 }
 EXCLUDED_NUTS = {
     "FR9",  # DÉPARTEMENTS D'OUTRE-MER (French Guiana, etc)
+    "FR91",  # Guadeloupe
+    "FR92",  # Martinique
+    "FR93",  # Guyane
+    "FR94",  # Réunion
     "ES63",  # Ceuta in North Africa,
     "ES64",  # Melilla in North Africa
     "UKI1",  # Inner London
