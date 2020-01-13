@@ -17,6 +17,7 @@ rtree = "*"
 descartes = "==1.*"
 jupyter = "==1.*"
 mapclassify = "==2.2.*"
+seaborn = "==0.9.0"
 
 [requires]
 python_version = "3.6"
