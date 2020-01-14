@@ -1,4 +1,5 @@
 import settings
+import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.patches
@@ -39,7 +40,9 @@ def adj_geoplot(ax):
 
 
 def make_legend_handles(scheme, cmap, fmt=DEFAULT_LEGEND_FMT):
-    colors = mpl.cm.ScalarMappable(cmap=cmap).to_rgba(scheme.bins)
+    colors = mpl.cm.ScalarMappable(
+        cmap=cmap, norm=mpl.colors.Normalize()
+    ).to_rgba(np.arange(len(scheme.bins)))
 
     texts = []
 
