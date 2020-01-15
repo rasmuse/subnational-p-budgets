@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches
 import geopandas
 import mapclassify
+import seaborn as sns
 
 
 DEFAULT_LEGEND_FMT = "{:.1f}"
@@ -31,6 +32,35 @@ CHOROPLETH_KWS = {
         legend_fmt="${:.0f}$",
     ),
 }
+
+# Figure sizes etc
+COLWIDTH = 76 / 25.4
+TEXTWIDTH = 160 / 25.4
+
+sns.set_style('darkgrid')
+sns.set(
+    font="Arial",
+    rc={
+        "xtick.labelsize": 8.5,
+        "ytick.labelsize": 8.5,
+        "axes.titlesize": 9,
+        "axes.labelsize": 8.5,
+        "legend.title_fontsize": 8.5,
+        "legend.fontsize": 8.5,
+        "text.usetex": False,
+        "font.family": "sans-serif",
+        "font.sans-serif": ["Arial"],
+        "mathtext.rm": "Arial",
+        "mathtext.fontset": "custom",
+        "axes.facecolor": "#eaeaea",
+    },
+)
+
+
+def adjust_print_plot(fig, **kwargs):
+    defaults = dict(left=0, bottom=0, right=1, top=0.97, wspace=0.05, hspace=0.05)
+
+    fig.subplots_adjust(**{**defaults, **kwargs})
 
 
 def adj_geoplot(ax):
