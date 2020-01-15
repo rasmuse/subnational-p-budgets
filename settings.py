@@ -15,6 +15,8 @@ EXCLUDED_NUTS = {
     "UKI1",  # Inner London
 }
 
+P_IN_P205 = 2 * 31 / (2 * 31 + 5 * 16)  # fraction P in P2O5
+
 NUTS_GIS_PATH = (
     f"indata/NUTS_RG_20M_{NUTS_VERSION}_3035.shp/"
     f"NUTS_RG_20M_{NUTS_VERSION}_3035.shp"
