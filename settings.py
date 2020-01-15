@@ -26,6 +26,7 @@ LIVEDATE_EXCRETION_PATH = (
     "indata/Livedate_2014_Database N excretion factors.xlsx"
 )
 FADN_GIS_PATH = "indata/FADN_RICA_PL_2012_20M/FADN_RICA_PL_2012_20M.shp"
+P_CONTENT_PATH = "indata/p-content.csv"
 
 FADN_WEIGHTS_PATH = "outdata/fadn_weights_by_nuts.csv"
 ENZ_WEIGHTS_PATH = "outdata/enz_weights_by_nuts.csv"

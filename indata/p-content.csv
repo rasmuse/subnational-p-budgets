@@ -1,0 +1,18 @@
+Crop code,Crop,Basis,P content [g/kg],P2O5 content [g/kg],Source
+C1000X1500,Cereals except maize and rice,DM,3.6,,Feedipedia (wheat grain)
+C1500,Grain maize,DM,3.0,,Feedipedia (grain maize)
+C2000,Rice,FW,,6.7,IPNI (2014)
+G1000,Temporary grassland,DM,,5.8,"IPNI (2014), average ryegrass and timothy"
+J0000,Permanent grassland,DM,,5.8,"IPNI (2014), average ryegrass and timothy"
+G2000,Leguminous plants harvested green,DM,3.1,,"Feedipedia (red clover, alfalfa mean)"
+G3000,Green maize,DM,1.9,,Feedipedia (maize silage)
+G9000,Other crops harvested green,DM,2.5,,"Mean of G1000, G2000, G3000"
+I1110,Rapeseed,DM,7.3,,Feedipedia (rapeseeds)
+I1120,Sunflower seed,DM,6.0,,Feedipedia (sunflower seeds)
+I1130,Soya,DM,6.1,,Feedipedia (soybean seeds)
+I1140,Linseed,DM,6.3,,Feedipedia (linseeds)
+R1000,Potatoes,FW,,1.5,IPNI (potato tuber)
+R2000,Sugar beet,FW,,1.1,IPNI (sugarbeet root)
+T0000,Citrus fruits,FW,0.2,,Czech et al. (2020)
+W1000,Grapes,FW,0.2,,PHE (2019)
+O1000,Olives,FW,0.2,,"Lott et al. (2000), PHE (2019)"
