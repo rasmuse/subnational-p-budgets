@@ -1,6 +1,6 @@
 # Subnational phosphorus budgets for EU28 agriculture
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3610359.svg)](https://doi.org/10.5281/zenodo.3610359)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3610358.svg)](https://doi.org/10.5281/zenodo.3610358)
 
 Source code used to produce results in a paper submitted to Nutrient Cycling in Agroecosystems.
 
