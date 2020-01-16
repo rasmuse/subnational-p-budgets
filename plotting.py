@@ -34,8 +34,9 @@ CHOROPLETH_KWS = {
 }
 
 # Figure sizes etc
-COLWIDTH = 76 / 25.4
-TEXTWIDTH = 160 / 25.4
+COLWIDTH = 76 / 25.4 # 84?
+TEXTWIDTH = 160 / 25.4 # 174?
+# Max height 234?
 
 sns.set_style('darkgrid')
 sns.set(
