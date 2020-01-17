@@ -8,6 +8,13 @@ Source code used to produce results in a paper submitted to Nutrient Cycling in 
 
 The `.ipynb` files (`Crop production.ipynb`, etc) are Jupyter notebooks to run all the major parts of the calculations. These can be inspected online by clicking the links.
 
+* [Permanent grassland yields](blob/master/Permanent%20grassland%20yields.ipynb)
+* [Manure](blob/master/Manure.ipynb)
+* [Mineral fertilizer](blob/master/Mineral%20fertilizer.ipynb)
+* [Crop production](blob/master/Crop%20production.ipynb)
+* [P budgets](blob/master/P%20budgets.ipynb)
+* [Results and figures](blob/master/Results%20and%20figures.ipynb)
+
 A zip file with the main results is submitted along with the paper and will thus available that way.
 
 The repository can also be cloned and run on your own computer. I have taken reasonable steps to keep the code portable, but please note it has only been tested on one computer running Ubuntu 18.04. Your mileage may vary.
