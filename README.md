@@ -2,7 +2,9 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3610358.svg)](https://doi.org/10.5281/zenodo.3610358)
 
-Source code used to produce results in a paper submitted to Nutrient Cycling in Agroecosystems.
+Source code used to produce results in the paper
+
+Einarsson, R., Pitulia, D., & Cederberg, C. (2020). Subnational nutrient budgets to monitor environmental risks in EU agriculture: Calculating phosphorus budgets for 243 EU28 regions using public data. *Nutrient Cycling in Agroecosystems*. [https://doi.org/10.1007/s10705-020-10064-y](https://doi.org/10.1007/s10705-020-10064-y)
 
 ## How to use this code repository
 
